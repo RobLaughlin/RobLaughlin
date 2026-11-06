@@ -1,24 +1,26 @@
 # Robert Laughlin
 
-Data analyst and analytics engineer working in SQL, Python, dbt, and BigQuery, with a strong probability and statistics foundation.
+Data analyst and data engineer working in SQL, Python, dbt, and BigQuery, with a strong probability and statistics foundation.
 
-Tacoma, WA · Open to remote work and relocation to Iowa · [LinkedIn](https://www.linkedin.com/in/robert-laughlin-9008b0323/) · [Email](mailto:robertlaughlin253@gmail.com)
+Tacoma, WA · Open to remote work and relocation to the Des Moines area · [rjln.dev](https://rjln.dev) · [LinkedIn](https://www.linkedin.com/in/robert-laughlin-data) · [Email](mailto:rjln.data@gmail.com)
 
 ## Now
 
-- Building a public Polk County residential-sales pipeline: ingestion → BigQuery → a documented dbt star schema
+- Analyzing sale prices on the Polk County pipeline's marts: SQL analysis, a BI dashboard, then statistical inference
 - Studying applied statistics: inference, then regression
 - Open to data analyst, BI, analytics engineering, and junior data engineering roles
 
 ## Projects
 
-### [Polk County Ingestion Pipeline](https://github.com/RobLaughlin/polk-county-ingestion-pipeline)
+### [Polk County Residential Sales Pipeline](https://github.com/RobLaughlin/polk-county-ingestion-pipeline)
 
 `Python` `SQL` `dbt` `BigQuery` `Cloud Storage` `Terraform` `Docker`
 
-- Terraform provisions a Cloud Storage bucket and a BigQuery dataset; dbt profile and source configuration are generated from Terraform outputs.
-- A Dockerized Python job downloads the Polk County Assessor's yearly residential-sale CSVs with retries, uploads only new or changed files (MD5 comparison), and loads them into a raw BigQuery table.
-- Next: dbt staging models and a star schema with key, relationship, and row-count tests.
+- Terraform provisions a versioned Cloud Storage bucket, a raw BigQuery dataset, and one dataset per dbt layer; the dbt profile and sources are generated from Terraform outputs.
+- A Dockerized Python job downloads the Polk County Assessor's yearly sale files with retries, uploads only new or changed files (MD5 comparison), and loads 403,264 sale records (1990–2026) into BigQuery.
+- 38 dbt models end in a star schema: sale-level fact tables; parcel, building, date, and code dimensions; and bridge tables for sales that cover several parcels. Building records are versioned, so each sale sees the house as it was when it sold.
+- 205 dbt tests, enforced contracts on 32 models, and source freshness checks. Warning-level tests flag source-data problems, such as 249 sales whose total assessment isn't land plus building, and keep the failing rows in audit tables.
+- [CS50 SQL final project](https://github.com/RobLaughlin/cs50_sql_final): a 2,000-sale SQLite sample of the star schema, with foreign keys, views, and indexes.
 
 ### [Neural Network from Scratch](https://github.com/RobLaughlin/neural-network-from-scratch)
 
@@ -46,11 +48,20 @@ All 25 days, using Dijkstra's algorithm, BFS state-space search with pruning, un
 
 ## Skills
 
-- **Data:** SQL (window functions, joins and row grain, as-of logic), dbt, BigQuery, pandas, NumPy
-- **Statistics:** probability, random variables and distributions, LLN/CLT, descriptive statistics and EDA
-- **Engineering:** Python, TypeScript and React, C++, Terraform, Docker, Git, Linux
+- **Data:** SQL (window functions, CTEs, as-of joins, row grain and join fan-out checks), dbt, BigQuery, dimensional modeling (star schemas), SQLite, MySQL, pandas, NumPy
+- **Statistics:** probability (Bayes, expectation and variance, LLN/CLT), distributions, descriptive statistics, missingness and outlier audits
+- **Engineering:** Python, Bash, Terraform, Docker, Git, Linux; also TypeScript and React, C++, and Go
 
-## Education
+## Education and certificates
 
-- Coursework toward a B.S. in Data Science, City University of Seattle (100 quarter credits)
-- Self-study: MIT 6.041 Probabilistic Systems Analysis (worked problem sets), MITx 18.01.1x and 18.02.1x calculus (verified certificates), Stanford Introduction to Statistics, DeepLearning.AI Deep Learning Specialization
+- Coursework toward a B.S. in Data Science, City University of Seattle, 2019–2021 (100 quarter credits)
+- Certificates:
+  - CS50's Introduction to Databases with SQL, Harvard University (2026)
+  - Machine Learning in Production, DeepLearning.AI (2026)
+  - Introduction to Statistics, Stanford Online (2025)
+  - Probability & Statistics for Machine Learning & Data Science, DeepLearning.AI (2025)
+  - Deep Learning Specialization, DeepLearning.AI (2024)
+  - Calculus: MITx 18.01.1x and 18.02.1x, verified (2020–2021); Mathematics for Machine Learning: Multivariate Calculus, Imperial College London (2021)
+- Self-study: MIT OCW 6.041 Probabilistic Systems Analysis (2026), with worked problem sets
+
+Verification links for each certificate are on [rjln.dev](https://rjln.dev/#education).
