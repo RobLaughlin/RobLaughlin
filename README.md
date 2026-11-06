@@ -12,7 +12,7 @@ Tacoma, WA · Open to remote work and relocation to Iowa · [LinkedIn](https://w
 
 ## Projects
 
-### [Polk County Ingestion Pipeline](https://github.com/RobLaughlin/polk-county-ingestion-pipeline) (in progress)
+### [Polk County Ingestion Pipeline](https://github.com/RobLaughlin/polk-county-ingestion-pipeline)
 
 `Python` `SQL` `dbt` `BigQuery` `Cloud Storage` `Terraform` `Docker`
 
